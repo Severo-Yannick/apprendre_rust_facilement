@@ -33,38 +33,38 @@ Lancer l'application<br>
 `cargo run`
 
 ### Site officiel de Rust
-[rust-lang]([https://www.rust-lang.org])
+* [rust-lang](https://www.rust-lang.org)
 
 ### Documentation de Rust
-[doc.rust-lang]([https://doc.rust-lang.org/stable/std/])
+* [doc.rust-lang](https://doc.rust-lang.org/stable/std/)
 
 ### Code source de Rust sur github
-[code-source]([https://github.com/rust-lang/rust])
+* [code-source](https://github.com/rust-lang/rust)
 
 ### Cours officel en anglais
-[rust-book]([https://doc.rust-lang.org/stable/book/])
+* [rust-book](https://doc.rust-lang.org/stable/book/)
 
 ### Reddit pour poser une question, faire une recherche ou de la veille
-[rust-reddit]([https://www.reddit.com/r/rust/])
+* [rust-reddit](https://www.reddit.com/r/rust/)
 
 ### Extensions Visual Studio Code que j'utilise:
 
-[rust-analyser]([https://code.visualstudio.com/docs/languages/rust])
+* [rust-analyser](https://code.visualstudio.com/docs/languages/rust)
 
-[crates]([https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates])
+* [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates)
 
-[better toml]([https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml])
+* [better toml](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
 
 - [Commentaires](#commentaires)
 
 ## Commentaires
-Les commentaires sont pour les programmeurs et non pour l'ordinateur. Ecrire un des commentaires aide à comprendre notre code plus tard.
+Ecrire un commentaire aide à comprendre notre code plus tard.
 
 ```rust
 fn main() {
   // Les programmes Rust commencent par fn main() 
   // Le code est dans un bloc entre les {}
-  let number = 42; // Ecrire ici est autorisé le compilateur ne le prendra pas en compte
+  let number = 42; // Ecrire ici est autorisé, le compilateur ne le prendra pas en compte
 }
 ```
 
@@ -76,7 +76,7 @@ fn main() {
 }
 ```
 
-Dans le compilater, `let number/*: i16*/ = 10;` prend en compte `let number = 10;`.
+Le compilater, `let number/*: i16*/ = 10;` prend en compte `let number = 10;`.
 
 `/* */` est utilisé pour des commentaires multilignes
 
