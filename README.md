@@ -55,7 +55,10 @@ Lancer l'application<br>
 
 * [better toml](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
 
-- [Commentaires](#commentaires)
+## RUST
+
+- [1 - Commentaires](#commentaires)
+- [2 - Types](#types)
 
 ## Commentaires
 Ecrire un commentaire aide à comprendre notre code plus tard.
@@ -88,5 +91,61 @@ fn main() {
   let number = 10; // Un super
   // beau
   // commentaire
+}
+```
+
+## Types
+Rust est un langage à `typage statique`, il doit connaître les types de toutes les variables au moment de la compilation. Le compilateur peut déduire le type que nous voulons utiliser en fonction de la valeur et de la manière dont nous l'utilisons.
+
+### Types primitifs (Primitive types)
+Rust a des types simples appelés types primitifs. Nous allons commencer par les entiers et char (caractères). Les entiers sont des nombres sans point décimal. Il existe deux types d'entiers :
+- Signed integers (entier signé)
+- Unsigned integers (entier non-signé)
+
+Un `entier signé` contient des valeurs entières qui peuvent être positives ou négatives. Un entier `non signé` ne peut contenir que des valeurs positives.
+
+Les entiers signés sont : `i8`, `i16`, `i32`, `i64`, `i128` et `isize`.
+Les entiers non signés sont : `u8`, `u16`, `u32`, `u64`, `u128` et `usize`.
+
+Le nombre après le `i` ou le `u` représente le nombre de bits, donc les nombres avec plus de bits peuvent être plus grands. 8 bits = un octet, donc i8 est un octet, i64 est 8 octets, et ainsi de suite. Les types de nombres avec des tailles plus grandes peuvent contenir des nombres plus grands. Par exemple, un u8 peut contenir jusqu'à 255, un u16 peut contenir jusqu'à 65535 et un u128 peut contenir jusqu'à 340282366920938463463374607431768211455.
+
+`isize` et `usize` sont le nombre de bits que possède un type d'ordinateur.Ainsi, `isize` et `usize` sur un ordinateur `32 bits` sont comme `i32` et `u32`, et `isize` et `usize` sur un ordinateur `64 bits` sont comme `i64` et `u64`.
+
+Les caractères en Rust sont appelés `char`. Chaque caractère a un numéro : la lettre A est le numéro 65, le caractère 友 ("ami" en chinois) est le numéro 21451. La liste des numéros s'appelle "Unicode". Unicode utilise les nombres les plus petits pour les caractères qui sont le plus utilisés, comme A à Z, ou les chiffres 0 à 9, ou l'espace.
+
+```rust
+fn main() {
+  let first_letter = 'A';
+  let space = ' '; // L'espace entre les ' ' est un caractère
+  let cat_face = '😺'; // Les emojis sont aussi des caractères
+}
+```
+
+Les caractères les plus utilisés ont des nombres inférieurs à 256, et ils peuvent tenir dans un `u8`.
+
+Tous les caractères utilisent 4 octets de mémoire, puisque 4 octets suffisent pour contenir n'importe quel type de caractère.
+Les lettres et symboles de base nécessitent généralement 1 octet sur 4 : a b 1 2 + - = $ @ D'autres lettres comme les trémas ou les accents nécessitent 2 octets sur 4 : ä ö ü ß è é à ñ Les caractères coréens, japonais ou chinois nécessitent 3 ou 4 octets : 国 안 녕
+
+`.len()` donne la taille de la chaîne en octets :
+```rust
+fn main() {
+  println!("Size of a char: {}", std::mem::size_of::<char>()); // 4 bytes
+  println!("Size of string containing 'a': {}", "a".len()); //  1 byte
+  println!("Size of string containing 'ß': {}", "ß".len()); // 2 bytes
+  println!("Size of string containing '国': {}", "国".len()); // 3 bytes
+  println!("Size of string containing '𓅱': {}", "𓅱".len()); // 4 bytes
+}
+```
+
+`.len()` donne la taille en octets
+
+`.chars().count()` transforme en caractères et compte
+
+```rust
+fn main() {
+  let slice = "Hello!";
+  println!("Slice is {} bytes and also {} characters.", slice.len(), slice.chars().count()); // slice est de 6 octets et également de 6 caractères
+  let slice2 = "안녕!";
+  println!("Slice2 is {} bytes but only {} characters.", slice2.len(), slice2.chars().count()); // slice2 est de 7 octets mais seulement 3 caractères
 }
 ```
